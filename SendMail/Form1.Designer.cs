@@ -41,6 +41,7 @@
             this.lblCout = new System.Windows.Forms.Label();
             this.lblCountDown = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tmr
@@ -145,12 +146,23 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(313, 469);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "powered by ekaraman89@hotmail.com";
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 480);
+            this.ClientSize = new System.Drawing.Size(886, 488);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCountDown);
             this.Controls.Add(this.lblCout);
             this.Controls.Add(this.lblToAddress);
@@ -185,6 +197,7 @@
         private System.Windows.Forms.Label lblCout;
         private System.Windows.Forms.Label lblCountDown;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

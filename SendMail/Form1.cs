@@ -118,6 +118,7 @@ namespace SendMail
             else
             {
                 btnStart.Enabled = true;
+                timer1.Enabled = false;
             }
         }
 
