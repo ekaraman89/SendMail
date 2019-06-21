@@ -42,6 +42,7 @@
             this.lblCountDown = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSelectFiles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tmr
@@ -88,9 +89,9 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(720, 428);
+            this.btnStart.Location = new System.Drawing.Point(734, 428);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(139, 38);
+            this.btnStart.Size = new System.Drawing.Size(125, 38);
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Göndermeye Başla";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -100,7 +101,7 @@
             // 
             this.pBar.Location = new System.Drawing.Point(84, 428);
             this.pBar.Name = "pBar";
-            this.pBar.Size = new System.Drawing.Size(630, 38);
+            this.pBar.Size = new System.Drawing.Size(565, 38);
             this.pBar.TabIndex = 5;
             // 
             // lblTo
@@ -156,12 +157,22 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "powered by ekaraman89@hotmail.com";
             // 
+            // btnSelectFiles
+            // 
+            this.btnSelectFiles.Location = new System.Drawing.Point(655, 428);
+            this.btnSelectFiles.Name = "btnSelectFiles";
+            this.btnSelectFiles.Size = new System.Drawing.Size(73, 38);
+            this.btnSelectFiles.TabIndex = 11;
+            this.btnSelectFiles.Text = "Dosya Seç";
+            this.btnSelectFiles.UseVisualStyleBackColor = true;
+            this.btnSelectFiles.Click += new System.EventHandler(this.btnSelectFiles_Click);
+            // 
             // frmMain
             // 
-            this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 488);
+            this.Controls.Add(this.btnSelectFiles);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCountDown);
             this.Controls.Add(this.lblCout);
@@ -198,6 +209,7 @@
         private System.Windows.Forms.Label lblCountDown;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSelectFiles;
     }
 }
 

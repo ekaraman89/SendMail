@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Net.Configuration;
 using System.Net;
 using System.IO;
+using System.Net.Mime;
 
 namespace SendMail
 {
@@ -35,6 +36,9 @@ namespace SendMail
             File.Delete(path);
             pBar.Maximum = MailAddress.Length;
         }
+
+        string attachmentFilename;
+
         private void SendMail(string ToMailAdress)
         {
             Configuration oConfig = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -60,6 +64,23 @@ namespace SendMail
                     message.Subject = txtSubject.Text;
                     message.IsBodyHtml = true;
                     message.Body = rtxtBody.Text;
+
+
+                    // Attachment attachment = new Attachment(attachmentPath);
+                    //message.Attachments.Add(attachment);
+
+                    if (attachmentFilename != null)
+                    {
+                        Attachment attachment = new Attachment(attachmentFilename, MediaTypeNames.Application.Octet);
+                        ContentDisposition disposition = attachment.ContentDisposition;
+                        disposition.CreationDate = File.GetCreationTime(attachmentFilename);
+                        disposition.ModificationDate = File.GetLastWriteTime(attachmentFilename);
+                        disposition.ReadDate = File.GetLastAccessTime(attachmentFilename);
+                        disposition.FileName = Path.GetFileName(attachmentFilename);
+                        disposition.Size = new FileInfo(attachmentFilename).Length;
+                        disposition.DispositionType = DispositionTypeNames.Attachment;
+                        message.Attachments.Add(attachment);
+                    }
 
                     var client = new SmtpClient
                     {
@@ -151,6 +172,15 @@ namespace SendMail
             {
                 countdown = 1;
                 tmr_Tick(sender, e);
+            }
+        }
+
+        private void btnSelectFiles_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                attachmentFilename = file.FileName;
             }
         }
     }
